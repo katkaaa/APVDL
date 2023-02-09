@@ -32,4 +32,36 @@ def post_done(dict):
 
 
 
+# Video & Audio options that are passed to the downloader. 
+# Feel free to change the 'preferedformat' and 'preferredcodec' values according to the README.md
+v_opts = {
+    'format' : 'bestvideo/best',
+    'logger' : Logger(),
+    'progress_hooks' : [downloading, done],
+    'postprocessor_hooks' : [post_done],
+    'postprocessors' : [{
+    'key' : 'FFmpegVideoConvertor',
+    'preferedformat' : 'mp4',
+    }],
+}
 
+a_opts = {
+    'format' : 'bestaudio/best',
+    'logger' : Logger(),
+    'progress_hooks' : [downloading,],
+    'postprocessors' : [{
+    'key' : 'FFmpegExtractAudio',
+    'preferredcodec' : 'mp3',
+    'preferredquality' : '192',
+    }],
+}
+
+
+
+while True:
+    print("Hi! Please choose whether you want to download a video or an audio.\nAvailable options: audio/video")
+    if input() == "audio" or "Audio" or "AUDIO":
+        print("Please paste a URL:")
+        url = input()
+        with yt_dlp.YoutubeDL(a_opts) as ytdl:
+            ytdl.download(url)
