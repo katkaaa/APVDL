@@ -14,9 +14,13 @@ class Logger(object):
     def error(self, msg):
         print(msg)
 
+
+
 def downloading(dict):
     if dict['status'] == 'downloading':
         print(f"Currently downloading..\nETA: {dict['eta']} second(s) @ {round(dict['speed'] / 1000, 2)} kbps")
+        time.sleep(0.5)
+        os.system("cls")
 
 def done(dict):
     if dict['status'] == "finished":
