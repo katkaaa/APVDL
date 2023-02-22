@@ -13,12 +13,13 @@ class Logger(object):
     
     def error(self, msg):
         print(msg)
+        time.sleep(10)
 
 
 
 def downloading(dict):
     if dict['status'] == 'downloading':
-        print(f"Currently downloading..\nETA: {dict['eta']} second(s) @ {round(dict['speed'] / 1000, 2)} kbps")
+        print(f"Currently downloading..\nETA: {dict['eta']} second(s) @ {round(dict['speed'], 2)} bytes/s")
         time.sleep(0.5)
         os.system("cls")
 
@@ -35,7 +36,7 @@ def post_done(dict):
 # Video & Audio options that are passed to the downloader. 
 # Feel free to change the 'preferedformat' and 'preferredcodec' values according to the README.md
 v_opts = {
-    'format' : 'bestvideo/best',
+    'format' : 'best',
     'logger' : Logger(),
     'progress_hooks' : [downloading, done],
     'postprocessor_hooks' : [post_done],
@@ -48,7 +49,8 @@ v_opts = {
 a_opts = {
     'format' : 'bestaudio/best',
     'logger' : Logger(),
-    'progress_hooks' : [downloading,],
+    'progress_hooks' : [downloading, done],
+    'postprocessor_hooks' : [post_done],
     'postprocessors' : [{
     'key' : 'FFmpegExtractAudio',
     'preferredcodec' : 'mp3',
@@ -60,8 +62,22 @@ a_opts = {
 
 while True:
     print("Hi! Please choose whether you want to download a video or an audio.\nAvailable options: audio/video")
-    if input() == "audio" or "Audio" or "AUDIO":
+    choice = input()
+    if choice == "audio":
         print("Please paste a URL:")
         url = input()
         with yt_dlp.YoutubeDL(a_opts) as ytdl:
             ytdl.download(url)
+
+    elif choice == "video":
+        print("Please paste a url:")
+        url = input()
+        with yt_dlp.YoutubeDL(v_opts) as ytdl:
+            ytdl.download(url)
+
+    else:
+        print("Please choose one of the available options.")
+
+    time.sleep(1)
+    os.system("cls")
+    
