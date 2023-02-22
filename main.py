@@ -19,7 +19,7 @@ class Logger(object):
 
 def downloading(dict):
     if dict['status'] == 'downloading':
-        print(f"Currently downloading..\nETA: {dict['eta']} second(s) @ {round(dict['speed'], 2)} bytes/s")
+        print(f"Currently downloading..\nETA: {dict['eta']} second(s) @ {dict['speed'], 2} bytes/s")
         time.sleep(0.5)
         os.system("cls")
 

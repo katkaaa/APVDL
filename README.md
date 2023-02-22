@@ -19,7 +19,13 @@ This will ensure you have all the dependencies required for this program to work
 
 
 # How to use?
-Just follow the steps in the terminal! Everything should be straight forward.
+In CMD (as administrator), run the following command:
+
+``cd <the path you downloaded this repo to>``
+
+and then:
+
+``py main.py``
 
 
 # Issues
