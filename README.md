@@ -40,5 +40,9 @@ In case something doesn't work:
  - If neither of these work, **submit an issue**.
 
 
+# To do
+ - Fix that awful speed display
+
+
 ## Note
 This program was created solely for **educational purposes**. 
