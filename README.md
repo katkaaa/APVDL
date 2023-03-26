@@ -1,4 +1,4 @@
-# Youtube downloading tool
+# APVDL - Another python video downloader
 This tool allows you to download videos (or audio) from mainly youtube, although it should work on all of the [supported websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md). 
 
 Take a look at the [tested websites](#tested-websites).
