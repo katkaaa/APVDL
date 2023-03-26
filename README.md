@@ -1,6 +1,9 @@
 # Youtube downloading tool
-This tool allows you to download videos (or audio) from mainly youtube, although it should work on all of the [supported websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md).
-This is basically an embed of [YT-DLP](https://github.com/yt-dlp/yt-dlp). I got rid of the cluttering in the command line and set the config to be somewhat optimal, but feel free to mess with it, if you know what you're doing.
+This tool allows you to download videos (or audio) from mainly youtube, although it should work on all of the [supported websites](https://github.com/yt-dlp/yt-dlp/blob/master/supportedsites.md). 
+
+Take a look at the [tested websites](#tested-websites).
+
+This program uses [YT-DLP](https://github.com/yt-dlp/yt-dlp) and [FFmpeg](https://www.ffmpeg.org).
 
 # Installation
 You will need:
@@ -28,6 +31,16 @@ and then:
 ``py main.py``
 
 
+# Tested websites
+ - youtube.com - ✅ 
+ - video.aktualne.cz - ✅
+ - reddit.com - ✅, just make sure to right click the video and click copy video address
+ - seznamzpravy.cz - ❌
+ - stream.cz - ✅
+ - twitter.com - ✅, but the tweet **cannot** contain any type of quotes
+ - ceskatelevize.cz - ❌, throws 404, will probably be fixed soon by the yt-dlp devs
+
+
 # Issues
 As of writing this README.md, it seems that everything is working correctly. Please submit an issue if you find one.
 
@@ -36,7 +49,7 @@ As of writing this README.md, it seems that everything is working correctly. Ple
 In case something doesn't work:
  - Make sure you have everything set up correctly
  - Try updating the yt-dlp package using:
-    ``python3 pip install yt-dlp``
+    ``python3 pip uninstall yt-dlp`` & ``python3 pip install yt-dlp``
  - If neither of these work, **submit an issue**.
 
 
