@@ -16,7 +16,7 @@ In CMD (as administrator), run the following command:
 
 and then:
 
-``python3 pip install requirements.txt``
+``python3 pip install -r requirements.txt``
 
 This will ensure you have all the dependencies required for this program to work.
 
