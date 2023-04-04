@@ -63,13 +63,13 @@ a_opts = {
 while True:
     print("Hi! Please choose whether you want to download a video or an audio.\nAvailable options: audio/video")
     choice = input()
-    if choice == "audio":
+    if choice.lower() == "audio":
         print("Please paste a URL:")
         url = input()
         with yt_dlp.YoutubeDL(a_opts) as ytdl:
             ytdl.download(url)
 
-    elif choice == "video":
+    elif choice.lower() == "video":
         print("Please paste a url:")
         url = input()
         with yt_dlp.YoutubeDL(v_opts) as ytdl:
